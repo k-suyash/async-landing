@@ -64,21 +64,21 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 relative z-10">
           {/* Mobile/Tablet Layout - QR on top */}
-          <div className="lg:hidden flex flex-col items-center text-center animate-fade-in">
+          <div className="lg:hidden flex flex-col items-center text-center animate-fade-in py-8 md:py-12">
             {/* QR Code for mobile/tablet */}
-            <div className="mb-8 animate-scale-in">
+            <div className="mb-6 md:mb-8 animate-scale-in">
               <div className="relative">
-                <div className="w-64 h-64 md:w-80 md:h-80 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
-                  <QrCode className="w-20 h-20 md:w-24 md:h-24 text-white/80" />
+                <div className="w-48 h-48 md:w-64 md:h-64 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
+                  <QrCode className="w-16 h-16 md:w-20 md:h-20 text-white/80" />
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-16 h-16 md:w-20 md:h-20 bg-accent rounded-full flex items-center justify-center animate-pulse">
-                  <Gift className="w-5 h-5 md:w-6 md:h-6 text-secondary" />
+                <div className="absolute -bottom-3 -right-3 w-12 h-12 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center animate-pulse">
+                  <Gift className="w-4 h-4 md:w-5 md:h-5 text-secondary" />
                 </div>
               </div>
             </div>
             
             {/* Content below QR for mobile/tablet */}
-            <div className="mb-8">
+            <div className="mb-6 md:mb-8">
               <h1 className="font-syne text-4xl md:text-5xl font-bold text-white mb-4">
                 Async
               </h1>
@@ -87,26 +87,26 @@ const Index = () => {
               </p>
             </div>
             
-            <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
+            <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white mb-6 leading-tight px-4">
               Turn Every QR Code Into Instant Rewards
             </h2>
             
-            <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
+            <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg px-4">
               Scan QR codes anywhere, complete quick branded tasks, and earn rewards you can use at local shops or online. It's that simple.
             </p>
             
-            <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto px-4">
               <Input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 h-12 bg-white/90 border-0 text-secondary placeholder:text-secondary/60"
+                className="flex-1 h-12 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 rounded-xl shadow-lg focus:bg-white transition-all duration-200"
               />
               <Button 
                 type="submit" 
                 disabled={isLoading}
-                className="h-12 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold transition-all duration-300 hover:scale-105"
+                className="h-12 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold transition-all duration-300 hover:scale-105 rounded-xl shadow-lg"
               >
                 {isLoading ? 'Joining...' : 'Join Waitlist'}
               </Button>
@@ -118,7 +118,7 @@ const Index = () => {
           </div>
 
           {/* Desktop Layout - Side by side */}
-          <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
+          <div className="hidden lg:grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto px-8">
             <div className="text-left animate-fade-in">
               <div className="mb-8">
                 <h1 className="font-syne text-6xl font-bold text-white mb-4">
@@ -137,18 +137,18 @@ const Index = () => {
                 Scan QR codes anywhere, complete quick branded tasks, and earn rewards you can use at local shops or online. It's that simple.
               </p>
               
-              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md">
+              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg">
                 <Input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Enter your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-12 bg-white/90 border-0 text-secondary placeholder:text-secondary/60"
+                  className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200"
                 />
                 <Button 
                   type="submit" 
                   disabled={isLoading}
-                  className="h-12 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold transition-all duration-300 hover:scale-105"
+                  className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 rounded-xl shadow-lg"
                 >
                   {isLoading ? 'Joining...' : 'Join Waitlist'}
                 </Button>
@@ -159,14 +159,14 @@ const Index = () => {
               </p>
             </div>
             
-            {/* Centered QR for desktop */}
-            <div className="flex items-center justify-center h-full animate-scale-in">
+            {/* Centered QR for desktop with proper spacing */}
+            <div className="flex items-center justify-center h-full animate-scale-in pr-8">
               <div className="relative">
-                <div className="w-96 h-96 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
-                  <QrCode className="w-32 h-32 text-white/80" />
+                <div className="w-80 h-80 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
+                  <QrCode className="w-28 h-28 text-white/80" />
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-full flex items-center justify-center animate-pulse">
-                  <Gift className="w-8 h-8 text-secondary" />
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-accent rounded-full flex items-center justify-center animate-pulse">
+                  <Gift className="w-7 h-7 text-secondary" />
                 </div>
               </div>
             </div>
@@ -361,15 +361,15 @@ const Index = () => {
           <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
             <Input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 h-14 bg-white border-0 text-secondary placeholder:text-secondary/60 text-lg"
+              className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200"
             />
             <Button 
               type="submit" 
               disabled={isLoading}
-              className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105"
+              className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 rounded-xl shadow-lg"
             >
               {isLoading ? 'Joining...' : 'Join Waitlist'}
             </Button>
