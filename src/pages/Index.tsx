@@ -63,26 +63,81 @@ const Index = () => {
       <section className="relative overflow-hidden bg-gradient-to-br from-primary to-secondary min-h-screen flex items-center">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left animate-fade-in">
+          {/* Mobile/Tablet Layout - QR on top */}
+          <div className="lg:hidden flex flex-col items-center text-center animate-fade-in">
+            {/* QR Code for mobile/tablet */}
+            <div className="mb-8 animate-scale-in">
+              <div className="relative">
+                <div className="w-64 h-64 md:w-80 md:h-80 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
+                  <QrCode className="w-20 h-20 md:w-24 md:h-24 text-white/80" />
+                </div>
+                <div className="absolute -bottom-4 -right-4 w-16 h-16 md:w-20 md:h-20 bg-accent rounded-full flex items-center justify-center animate-pulse">
+                  <Gift className="w-5 h-5 md:w-6 md:h-6 text-secondary" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Content below QR for mobile/tablet */}
+            <div className="mb-8">
+              <h1 className="font-syne text-4xl md:text-5xl font-bold text-white mb-4">
+                Async
+              </h1>
+              <p className="font-space-grotesk text-xl md:text-2xl text-white/90 font-medium">
+                Scan. Earn. Connect.
+              </p>
+            </div>
+            
+            <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
+              Turn Every QR Code Into Instant Rewards
+            </h2>
+            
+            <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg">
+              Scan QR codes anywhere, complete quick branded tasks, and earn rewards you can use at local shops or online. It's that simple.
+            </p>
+            
+            <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 h-12 bg-white/90 border-0 text-secondary placeholder:text-secondary/60"
+              />
+              <Button 
+                type="submit" 
+                disabled={isLoading}
+                className="h-12 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold transition-all duration-300 hover:scale-105"
+              >
+                {isLoading ? 'Joining...' : 'Join Waitlist'}
+              </Button>
+            </form>
+            
+            <p className="text-white/60 text-sm mt-4">
+              🚀 Be among the first 1,000 early adopters
+            </p>
+          </div>
+
+          {/* Desktop Layout - Side by side */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left animate-fade-in">
               <div className="mb-8">
-                <h1 className="font-syne text-4xl lg:text-6xl font-bold text-white mb-4">
+                <h1 className="font-syne text-6xl font-bold text-white mb-4">
                   Async
                 </h1>
-                <p className="font-space-grotesk text-xl lg:text-2xl text-white/90 font-medium">
+                <p className="font-space-grotesk text-2xl text-white/90 font-medium">
                   Scan. Earn. Connect.
                 </p>
               </div>
               
-              <h2 className="font-space-grotesk text-2xl lg:text-4xl font-bold text-white mb-6 leading-tight">
+              <h2 className="font-space-grotesk text-4xl font-bold text-white mb-6 leading-tight">
                 Turn Every QR Code Into Instant Rewards
               </h2>
               
-              <p className="text-lg lg:text-xl text-white/80 mb-8 max-w-lg mx-auto lg:mx-0">
+              <p className="text-xl text-white/80 mb-8 max-w-lg">
                 Scan QR codes anywhere, complete quick branded tasks, and earn rewards you can use at local shops or online. It's that simple.
               </p>
               
-              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-0">
+              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md">
                 <Input
                   type="email"
                   placeholder="Enter your email"
@@ -104,13 +159,14 @@ const Index = () => {
               </p>
             </div>
             
-            <div className="flex justify-center lg:justify-end animate-scale-in">
+            {/* Centered QR for desktop */}
+            <div className="flex items-center justify-center h-full animate-scale-in">
               <div className="relative">
-                <div className="w-80 h-80 lg:w-96 lg:h-96 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
-                  <QrCode className="w-24 h-24 lg:w-32 lg:h-32 text-white/80" />
+                <div className="w-96 h-96 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
+                  <QrCode className="w-32 h-32 text-white/80" />
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-20 h-20 lg:w-24 lg:h-24 bg-accent rounded-full flex items-center justify-center animate-pulse">
-                  <Gift className="w-6 h-6 lg:w-8 lg:h-8 text-secondary" />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-full flex items-center justify-center animate-pulse">
+                  <Gift className="w-8 h-8 text-secondary" />
                 </div>
               </div>
             </div>
