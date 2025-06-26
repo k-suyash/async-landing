@@ -4,6 +4,7 @@ import { QrCode, Zap, Gift, Users, Store, Target, ChevronRight, Mail, Instagram,
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const Index = () => {
   const [email, setEmail] = useState('');
@@ -17,12 +18,43 @@ const Index = () => {
     }
     
     setIsLoading(true);
-    // Simulate API call
-    setTimeout(() => {
+    
+    try {
+      // Check if email already exists
+      const { data: existingEmail, error: checkError } = await supabase
+        .from('waitlist')
+        .select('email')
+        .eq('email', email)
+        .single();
+
+      if (checkError && checkError.code !== 'PGRST116') {
+        // PGRST116 is "not found" error, which is expected for new emails
+        throw checkError;
+      }
+
+      if (existingEmail) {
+        toast.success('You\'re already on our waitlist! 🎉');
+        setEmail('');
+        return;
+      }
+
+      // Insert new email
+      const { error: insertError } = await supabase
+        .from('waitlist')
+        .insert([{ email }]);
+
+      if (insertError) {
+        throw insertError;
+      }
+
       toast.success('Welcome to the Async waitlist! 🎉');
       setEmail('');
+    } catch (error) {
+      console.error('Error adding to waitlist:', error);
+      toast.error('Something went wrong. Please try again.');
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -75,10 +107,10 @@ const Index = () => {
             <div className="flex justify-center lg:justify-end animate-scale-in">
               <div className="relative">
                 <div className="w-80 h-80 lg:w-96 lg:h-96 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
-                  <QrCode className="w-32 h-32 lg:w-40 lg:h-40 text-white/80" />
+                  <QrCode className="w-24 h-24 lg:w-32 lg:h-32 text-white/80" />
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-full flex items-center justify-center animate-pulse">
-                  <Gift className="w-8 h-8 text-secondary" />
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 lg:w-24 lg:h-24 bg-accent rounded-full flex items-center justify-center animate-pulse">
+                  <Gift className="w-6 h-6 lg:w-8 lg:h-8 text-secondary" />
                 </div>
               </div>
             </div>
