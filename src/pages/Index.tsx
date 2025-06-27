@@ -16,9 +16,9 @@ const Index = () => {
       toast.error('Please enter your email address');
       return;
     }
-    
+
     setIsLoading(true);
-    
+
     try {
       // Check if email already exists
       const { data: existingEmail, error: checkError } = await supabase
@@ -76,7 +76,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Content below QR for mobile/tablet */}
             <div className="mb-6 md:mb-8">
               <h1 className="font-syne text-4xl md:text-5xl font-bold text-white mb-4">
@@ -86,15 +86,15 @@ const Index = () => {
                 Scan. Earn. Connect.
               </p>
             </div>
-            
+
             <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white mb-6 leading-tight px-4">
               Turn Every QR Code Into Instant Rewards
             </h2>
-            
+
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg px-4">
               Scan QR codes anywhere, complete quick branded tasks, and earn rewards you can use at local shops or online. It's that simple.
             </p>
-            
+
             <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto px-4">
               <Input
                 type="email"
@@ -103,15 +103,15 @@ const Index = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 h-12 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 rounded-xl shadow-lg focus:bg-white transition-all duration-200"
               />
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 disabled={isLoading}
                 className="h-12 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold transition-all duration-300 hover:scale-105 rounded-xl shadow-lg"
               >
                 {isLoading ? 'Joining...' : 'Join Waitlist'}
               </Button>
             </form>
-            
+
             <p className="text-white/60 text-sm mt-4">
               🚀 Be among the first 1,000 early adopters
             </p>
@@ -128,15 +128,15 @@ const Index = () => {
                   Scan. Earn. Connect.
                 </p>
               </div>
-              
+
               <h2 className="font-space-grotesk text-4xl font-bold text-white mb-6 leading-tight">
                 Turn Every QR Code Into Instant Rewards
               </h2>
-              
+
               <p className="text-xl text-white/80 mb-8 max-w-lg">
                 Scan QR codes anywhere, complete quick branded tasks, and earn rewards you can use at local shops or online. It's that simple.
               </p>
-              
+
               <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg">
                 <Input
                   type="email"
@@ -145,20 +145,20 @@ const Index = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200"
                 />
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={isLoading}
                   className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 rounded-xl shadow-lg"
                 >
                   {isLoading ? 'Joining...' : 'Join Waitlist'}
                 </Button>
               </form>
-              
+
               <p className="text-white/60 text-sm mt-4">
                 🚀 Be among the first 1,000 early adopters
               </p>
             </div>
-            
+
             {/* Centered QR for desktop with proper spacing */}
             <div className="flex items-center justify-center h-full animate-scale-in pr-8">
               <div className="relative">
@@ -185,7 +185,7 @@ const Index = () => {
               Three simple steps to start earning rewards from everyday interactions
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center group">
               <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -198,7 +198,7 @@ const Index = () => {
                 Find QR codes on products, posters, or anywhere in public spaces
               </p>
             </div>
-            
+
             <div className="text-center group">
               <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-10 h-10 text-secondary" />
@@ -210,7 +210,7 @@ const Index = () => {
                 Quick branded activities like surveys, ads, or social interactions
               </p>
             </div>
-            
+
             <div className="text-center group">
               <div className="w-20 h-20 bg-destructive rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Gift className="w-10 h-10 text-white" />
@@ -237,7 +237,7 @@ const Index = () => {
               A win-win-win platform that benefits everyone in the ecosystem
             </p>
           </div>
-          
+
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
@@ -261,7 +261,7 @@ const Index = () => {
                 </li>
               </ul>
             </div>
-            
+
             <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
                 <Store className="w-8 h-8 text-accent" />
@@ -284,7 +284,7 @@ const Index = () => {
                 </li>
               </ul>
             </div>
-            
+
             <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="w-16 h-16 bg-destructive/10 rounded-lg flex items-center justify-center mb-6">
                 <Target className="w-8 h-8 text-destructive" />
@@ -312,7 +312,7 @@ const Index = () => {
       </section>
 
       {/* Screenshots/Demo */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-space-grotesk text-3xl lg:text-4xl font-bold text-secondary mb-4">
@@ -322,31 +322,31 @@ const Index = () => {
               Experience the seamless flow from scan to reward
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg p-8 text-center">
               <div className="w-48 h-96 bg-white rounded-2xl mx-auto shadow-lg border-8 border-secondary/10 flex items-center justify-center mb-4">
                 <QrCode className="w-16 h-16 text-primary" />
               </div>
-              <p className="font-space-grotesk font-medium text-secondary">Scan Interface</p>
+              <p className="font-space-grotesk font-medium text-secondary">Scan</p>
             </div>
-            
+
             <div className="bg-gradient-to-br from-accent/5 to-accent/10 rounded-lg p-8 text-center">
               <div className="w-48 h-96 bg-white rounded-2xl mx-auto shadow-lg border-8 border-secondary/10 flex items-center justify-center mb-4">
                 <Zap className="w-16 h-16 text-accent" />
               </div>
-              <p className="font-space-grotesk font-medium text-secondary">Task Completion</p>
+              <p className="font-space-grotesk font-medium text-secondary">Complete</p>
             </div>
-            
+
             <div className="bg-gradient-to-br from-destructive/5 to-destructive/10 rounded-lg p-8 text-center">
               <div className="w-48 h-96 bg-white rounded-2xl mx-auto shadow-lg border-8 border-secondary/10 flex items-center justify-center mb-4">
                 <Gift className="w-16 h-16 text-destructive" />
               </div>
-              <p className="font-space-grotesk font-medium text-secondary">Reward Redemption</p>
+              <p className="font-space-grotesk font-medium text-secondary">Reward</p>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-r from-primary to-secondary">
@@ -357,7 +357,7 @@ const Index = () => {
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             Join our exclusive waitlist and get early access to the future of reward-based interactions. Spots are limited!
           </p>
-          
+
           <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
             <Input
               type="email"
@@ -366,15 +366,15 @@ const Index = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200"
             />
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               disabled={isLoading}
               className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 rounded-xl shadow-lg"
             >
               {isLoading ? 'Joining...' : 'Join Waitlist'}
             </Button>
           </form>
-          
+
           <p className="text-white/60">
             🎯 Early adopters get exclusive perks and bonus rewards
           </p>
@@ -391,40 +391,40 @@ const Index = () => {
                 Connecting people, local shops, and brands through innovative QR-based rewards.
               </p>
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+                {/* <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
                   <Twitter className="w-5 h-5 text-white" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+                </a> */}
+                <a href="https://instagram.com/1.suyashk" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
                   <Instagram className="w-5 h-5 text-white" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
+                <a href="mailto:1.suyashk@gmail.com" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
                   <Mail className="w-5 h-5 text-white" />
                 </a>
               </div>
             </div>
-            
+
             <div>
               <h4 className="font-space-grotesk font-semibold text-white mb-4">Company</h4>
               <ul className="space-y-2">
                 <li><a href="#" className="text-white/70 hover:text-accent transition-colors">About</a></li>
                 <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Careers</a></li>
-                <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Press</a></li>
+                {/* <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Press</a></li> */}
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-space-grotesk font-semibold text-white mb-4">Legal</h4>
               <ul className="space-y-2">
                 <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Contact</a></li>
+                <li>   <a href="mailto:1.suyashk@gmail.com" className="text-white/70 hover:text-accent transition-colors">Contact</a></li>
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-white/10 mt-8 pt-8 text-center">
             <p className="text-white/60">
-              © 2024 Async. All rights reserved. Scan. Earn. Connect.
+              © 2025 Async. All rights reserved.
             </p>
           </div>
         </div>
