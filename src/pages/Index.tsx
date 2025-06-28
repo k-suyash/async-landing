@@ -83,7 +83,7 @@ const Index = () => {
                 Async
               </h1>
               <p className="font-space-grotesk text-xl md:text-2xl text-white/90 font-medium">
-                Discover. Scan. Earn Karma.
+                Scan. Earn. Redeem.
               </p>
             </div>
 
@@ -92,21 +92,24 @@ const Index = () => {
             </h2>
 
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg px-4">
-              Find local shops with rewards, scan QR codes in-store, complete quick tasks, and earn karma points for free branded samples.
+              Find local shops, scan QR codes, complete tasks, and earn karma points for free branded samples.
             </p>
 
             <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto px-4 mb-6">
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 h-12 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 rounded-xl shadow-lg focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-accent/50"
-              />
+              <div className="relative flex-1">
+                <Input
+                  type="email"
+                  placeholder="✨ Your email for early access"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="h-12 bg-white/90 backdrop-blur-sm border-2 border-white/30 text-secondary placeholder:text-secondary/50 rounded-2xl shadow-xl focus:bg-white focus:border-accent/50 transition-all duration-300 focus:ring-4 focus:ring-accent/20 pl-4 pr-4 text-base font-medium"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl pointer-events-none"></div>
+              </div>
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="h-12 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold transition-all duration-300 hover:scale-105 rounded-xl shadow-lg"
+                className="h-12 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-2xl shadow-lg border-2 border-accent/20"
               >
                 {isLoading ? 'Joining...' : 'Join Waitlist'}
               </Button>
@@ -125,7 +128,7 @@ const Index = () => {
                   Async
                 </h1>
                 <p className="font-space-grotesk text-2xl text-white/90 font-medium">
-                  Discover. Scan. Earn Karma.
+                  Scan. Earn. Redeem.
                 </p>
               </div>
 
@@ -134,21 +137,24 @@ const Index = () => {
               </h2>
 
               <p className="text-xl text-white/80 mb-8 max-w-lg">
-                Find local shops with rewards, scan QR codes in-store, complete quick tasks, and earn karma points for free branded samples.
+                Find local shops, scan QR codes, complete tasks, and earn karma points for free branded samples.
               </p>
 
               <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mb-6">
-                <Input
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-accent/50"
-                />
+                <div className="relative flex-1">
+                  <Input
+                    type="email"
+                    placeholder="✨ Your email for early access"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="h-14 bg-white/90 backdrop-blur-sm border-2 border-white/30 text-secondary placeholder:text-secondary/50 text-lg rounded-2xl shadow-xl focus:bg-white focus:border-accent/50 transition-all duration-300 focus:ring-4 focus:ring-accent/20 pl-5 pr-5 font-medium"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl pointer-events-none"></div>
+                </div>
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 rounded-xl shadow-lg"
+                  className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-2xl shadow-lg border-2 border-accent/20"
                 >
                   {isLoading ? 'Joining...' : 'Join Waitlist'}
                 </Button>
@@ -182,7 +188,7 @@ const Index = () => {
               How Async Works
             </h2>
             <p className="text-lg text-secondary/70 max-w-2xl mx-auto">
-              Four simple steps to discover local shops and start earning karma points
+              Simple steps to discover local shops and start earning karma points
             </p>
           </div>
 
@@ -219,7 +225,7 @@ const Index = () => {
                 3. Complete Tasks
               </h3>
               <p className="text-secondary/70">
-                Complete quick surveys or view ads to earn water bottles and karma points
+                Complete quick surveys or view ads to earn rewards and karma points
               </p>
             </div>
 
@@ -261,7 +267,7 @@ const Index = () => {
                     Earn Karma Points
                   </h3>
                   <p className="text-secondary/70">
-                    Complete surveys and tasks to earn karma points alongside immediate rewards like water bottles
+                    Complete surveys and tasks to earn karma points alongside immediate rewards
                   </p>
                 </div>
               </div>
@@ -409,17 +415,20 @@ const Index = () => {
           </p>
 
           <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
-            <Input
-              type="email"
-              placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-accent/50"
-            />
+            <div className="relative flex-1">
+              <Input
+                type="email"
+                placeholder="✨ Your email for early access"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="h-14 bg-white/90 backdrop-blur-sm border-2 border-white/30 text-secondary placeholder:text-secondary/50 text-lg rounded-2xl shadow-xl focus:bg-white focus:border-accent/50 transition-all duration-300 focus:ring-4 focus:ring-accent/20 pl-5 pr-5 font-medium"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl pointer-events-none"></div>
+            </div>
             <Button
               type="submit"
               disabled={isLoading}
-              className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 rounded-xl shadow-lg"
+              className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-2xl shadow-lg border-2 border-accent/20"
             >
               {isLoading ? 'Joining...' : 'Join Waitlist'}
             </Button>
