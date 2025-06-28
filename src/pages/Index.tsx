@@ -1,61 +1,10 @@
-
 import { useState } from 'react';
 import { QrCode, Zap, Gift, Users, Store, Target, ChevronRight, Mail, Instagram, Twitter, MapPin, Award, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { toast } from 'sonner';
-import { supabase } from '@/integrations/supabase/client';
+import WaitlistModal from '@/components/WaitlistModal';
 
 const Index = () => {
-  const [email, setEmail] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleWaitlistSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) {
-      toast.error('Please enter your email address');
-      return;
-    }
-
-    setIsLoading(true);
-
-    try {
-      // Check if email already exists
-      const { data: existingEmail, error: checkError } = await supabase
-        .from('waitlist')
-        .select('email')
-        .eq('email', email)
-        .single();
-
-      if (checkError && checkError.code !== 'PGRST116') {
-        // PGRST116 is "not found" error, which is expected for new emails
-        throw checkError;
-      }
-
-      if (existingEmail) {
-        toast.success('You\'re already on our waitlist! 🎉');
-        setEmail('');
-        return;
-      }
-
-      // Insert new email
-      const { error: insertError } = await supabase
-        .from('waitlist')
-        .insert([{ email }]);
-
-      if (insertError) {
-        throw insertError;
-      }
-
-      toast.success('Welcome to the Async waitlist! 🎉');
-      setEmail('');
-    } catch (error) {
-      console.error('Error adding to waitlist:', error);
-      toast.error('Something went wrong. Please try again.');
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const [showWaitlistModal, setShowWaitlistModal] = useState(false);
 
   return (
     <div className="min-h-screen bg-neutral font-general-sans">
@@ -95,25 +44,14 @@ const Index = () => {
               Find local shops, scan QR codes, complete tasks, and earn karma points for free branded samples.
             </p>
 
-            <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto px-4 mb-6">
-              <div className="relative flex-1">
-                <Input
-                  type="email"
-                  placeholder="✨ Your email for early access"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 bg-white/90 backdrop-blur-sm border-2 border-white/30 text-secondary placeholder:text-secondary/50 rounded-2xl shadow-xl focus:bg-white focus:border-accent/50 transition-all duration-300 focus:ring-4 focus:ring-accent/20 pl-4 pr-4 text-base font-medium"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl pointer-events-none"></div>
-              </div>
+            <div className="mb-6">
               <Button
-                type="submit"
-                disabled={isLoading}
+                onClick={() => setShowWaitlistModal(true)}
                 className="h-12 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-2xl shadow-lg border-2 border-accent/20"
               >
-                {isLoading ? 'Joining...' : 'Join Waitlist'}
+                Join Waitlist
               </Button>
-            </form>
+            </div>
 
             <p className="text-white/60 text-sm">
               🚀 Be among the first 1,000 early adopters
@@ -140,25 +78,14 @@ const Index = () => {
                 Find local shops, scan QR codes, complete tasks, and earn karma points for free branded samples.
               </p>
 
-              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mb-6">
-                <div className="relative flex-1">
-                  <Input
-                    type="email"
-                    placeholder="✨ Your email for early access"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="h-14 bg-white/90 backdrop-blur-sm border-2 border-white/30 text-secondary placeholder:text-secondary/50 text-lg rounded-2xl shadow-xl focus:bg-white focus:border-accent/50 transition-all duration-300 focus:ring-4 focus:ring-accent/20 pl-5 pr-5 font-medium"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl pointer-events-none"></div>
-                </div>
+              <div className="mb-6">
                 <Button
-                  type="submit"
-                  disabled={isLoading}
+                  onClick={() => setShowWaitlistModal(true)}
                   className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-2xl shadow-lg border-2 border-accent/20"
                 >
-                  {isLoading ? 'Joining...' : 'Join Waitlist'}
+                  Join Waitlist
                 </Button>
-              </form>
+              </div>
 
               <p className="text-white/60 text-sm">
                 🚀 Be among the first 1,000 early adopters
@@ -414,25 +341,14 @@ const Index = () => {
             Join our exclusive waitlist and get early access to discover nearby shops, earn karma points, and get free branded samples. Spots are limited!
           </p>
 
-          <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
-            <div className="relative flex-1">
-              <Input
-                type="email"
-                placeholder="✨ Your email for early access"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="h-14 bg-white/90 backdrop-blur-sm border-2 border-white/30 text-secondary placeholder:text-secondary/50 text-lg rounded-2xl shadow-xl focus:bg-white focus:border-accent/50 transition-all duration-300 focus:ring-4 focus:ring-accent/20 pl-5 pr-5 font-medium"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-primary/5 rounded-2xl pointer-events-none"></div>
-            </div>
+          <div className="mb-8">
             <Button
-              type="submit"
-              disabled={isLoading}
+              onClick={() => setShowWaitlistModal(true)}
               className="h-14 px-8 bg-accent hover:bg-accent/90 text-secondary font-space-grotesk font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl rounded-2xl shadow-lg border-2 border-accent/20"
             >
-              {isLoading ? 'Joining...' : 'Join Waitlist'}
+              Join Waitlist
             </Button>
-          </form>
+          </div>
 
           <p className="text-white/60">
             🎯 Early adopters get exclusive perks and bonus karma points
@@ -484,6 +400,12 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Waitlist Modal */}
+      <WaitlistModal 
+        open={showWaitlistModal} 
+        onOpenChange={setShowWaitlistModal} 
+      />
     </div>
   );
 };
