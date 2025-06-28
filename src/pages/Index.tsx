@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { QrCode, Zap, Gift, Users, Store, Target, ChevronRight, Mail, Instagram, Twitter } from 'lucide-react';
+import { QrCode, Zap, Gift, Users, Store, Target, ChevronRight, Mail, Instagram, Twitter, MapPin, Award, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
@@ -64,15 +64,15 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 relative z-10">
           {/* Mobile/Tablet Layout - QR on top */}
-          <div className="lg:hidden flex flex-col items-center text-center animate-fade-in py-8 md:py-12">
+          <div className="lg:hidden flex flex-col items-center text-center animate-fade-in py-12 md:py-16">
             {/* QR Code for mobile/tablet */}
-            <div className="mb-6 md:mb-8 animate-scale-in">
+            <div className="mb-8 md:mb-10 animate-scale-in">
               <div className="relative">
-                <div className="w-48 h-48 md:w-64 md:h-64 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
-                  <QrCode className="w-16 h-16 md:w-20 md:h-20 text-white/80" />
+                <div className="w-52 h-52 md:w-72 md:h-72 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
+                  <QrCode className="w-20 h-20 md:w-28 md:h-28 text-white/80" />
                 </div>
-                <div className="absolute -bottom-3 -right-3 w-12 h-12 md:w-16 md:h-16 bg-accent rounded-full flex items-center justify-center animate-pulse">
-                  <Gift className="w-4 h-4 md:w-5 md:h-5 text-secondary" />
+                <div className="absolute -bottom-4 -right-4 w-14 h-14 md:w-20 md:h-20 bg-accent rounded-full flex items-center justify-center animate-pulse">
+                  <Gift className="w-5 h-5 md:w-7 md:h-7 text-secondary" />
                 </div>
               </div>
             </div>
@@ -83,25 +83,25 @@ const Index = () => {
                 Async
               </h1>
               <p className="font-space-grotesk text-xl md:text-2xl text-white/90 font-medium">
-                Scan. Earn. Connect.
+                Discover. Scan. Earn Karma.
               </p>
             </div>
 
             <h2 className="font-space-grotesk text-2xl md:text-3xl font-bold text-white mb-6 leading-tight px-4">
-              Turn Every QR Code Into Instant Rewards
+              Discover Nearby Shops & Earn Karma Points
             </h2>
 
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg px-4">
-              Scan QR codes anywhere, complete quick branded tasks, and earn rewards you can use at local shops or online. It's that simple.
+              Find local shops with rewards, scan QR codes in-store, complete quick tasks, and earn karma points for free branded samples.
             </p>
 
-            <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto px-4">
+            <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto px-4 mb-6">
               <Input
                 type="email"
                 placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 h-12 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 rounded-xl shadow-lg focus:bg-white transition-all duration-200"
+                className="flex-1 h-12 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 rounded-xl shadow-lg focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-accent/50"
               />
               <Button
                 type="submit"
@@ -112,7 +112,7 @@ const Index = () => {
               </Button>
             </form>
 
-            <p className="text-white/60 text-sm mt-4">
+            <p className="text-white/60 text-sm">
               🚀 Be among the first 1,000 early adopters
             </p>
           </div>
@@ -125,25 +125,25 @@ const Index = () => {
                   Async
                 </h1>
                 <p className="font-space-grotesk text-2xl text-white/90 font-medium">
-                  Scan. Earn. Connect.
+                  Discover. Scan. Earn Karma.
                 </p>
               </div>
 
               <h2 className="font-space-grotesk text-4xl font-bold text-white mb-6 leading-tight">
-                Turn Every QR Code Into Instant Rewards
+                Discover Nearby Shops & Earn Karma Points
               </h2>
 
               <p className="text-xl text-white/80 mb-8 max-w-lg">
-                Scan QR codes anywhere, complete quick branded tasks, and earn rewards you can use at local shops or online. It's that simple.
+                Find local shops with rewards, scan QR codes in-store, complete quick tasks, and earn karma points for free branded samples.
               </p>
 
-              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg">
+              <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mb-6">
                 <Input
                   type="email"
                   placeholder="Enter your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200"
+                  className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-accent/50"
                 />
                 <Button
                   type="submit"
@@ -154,13 +154,13 @@ const Index = () => {
                 </Button>
               </form>
 
-              <p className="text-white/60 text-sm mt-4">
+              <p className="text-white/60 text-sm">
                 🚀 Be among the first 1,000 early adopters
               </p>
             </div>
 
-            {/* Centered QR for desktop with proper spacing */}
-            <div className="flex items-center justify-center h-full animate-scale-in pr-8">
+            {/* Centered QR for desktop with proper spacing and padding */}
+            <div className="flex items-center justify-center h-full animate-scale-in pl-8 pr-16">
               <div className="relative">
                 <div className="w-80 h-80 bg-white/10 rounded-3xl backdrop-blur-lg border border-white/20 flex items-center justify-center">
                   <QrCode className="w-28 h-28 text-white/80" />
@@ -182,45 +182,132 @@ const Index = () => {
               How Async Works
             </h2>
             <p className="text-lg text-secondary/70 max-w-2xl mx-auto">
-              Three simple steps to start earning rewards from everyday interactions
+              Four simple steps to discover local shops and start earning karma points
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             <div className="text-center group">
               <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <QrCode className="w-10 h-10 text-white" />
+                <MapPin className="w-10 h-10 text-white" />
               </div>
               <h3 className="font-space-grotesk text-xl font-semibold text-secondary mb-3">
-                1. Scan a QR
+                1. Discover Shops
               </h3>
               <p className="text-secondary/70">
-                Find QR codes on products, posters, or anywhere in public spaces
+                Browse nearby shops and see available rewards and offers in your area
               </p>
             </div>
 
             <div className="text-center group">
               <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Zap className="w-10 h-10 text-secondary" />
+                <QrCode className="w-10 h-10 text-secondary" />
               </div>
               <h3 className="font-space-grotesk text-xl font-semibold text-secondary mb-3">
-                2. Complete a Task
+                2. Visit & Scan
               </h3>
               <p className="text-secondary/70">
-                Quick branded activities like surveys, ads, or social interactions
+                Visit the shop and scan the QR code to unlock rewards and tasks
               </p>
             </div>
 
             <div className="text-center group">
               <div className="w-20 h-20 bg-destructive rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Gift className="w-10 h-10 text-white" />
+                <Zap className="w-10 h-10 text-white" />
               </div>
               <h3 className="font-space-grotesk text-xl font-semibold text-secondary mb-3">
-                3. Earn Rewards
+                3. Complete Tasks
               </h3>
               <p className="text-secondary/70">
-                Instant rewards redeemable at local shops or online stores
+                Complete quick surveys or view ads to earn water bottles and karma points
               </p>
+            </div>
+
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Heart className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="font-space-grotesk text-xl font-semibold text-secondary mb-3">
+                4. Use Karma Points
+              </h3>
+              <p className="text-secondary/70">
+                Redeem karma points for branded free samples and earn even more points
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Karma Points System */}
+      <section className="py-20 bg-gradient-to-br from-accent/5 to-primary/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="font-space-grotesk text-3xl lg:text-4xl font-bold text-secondary mb-4">
+              The Karma Points System
+            </h2>
+            <p className="text-lg text-secondary/70 max-w-2xl mx-auto">
+              A circular reward ecosystem that benefits everyone
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 max-w-4xl mx-auto items-center">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm">
+                <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Award className="w-6 h-6 text-accent" />
+                </div>
+                <div>
+                  <h3 className="font-space-grotesk text-lg font-semibold text-secondary mb-2">
+                    Earn Karma Points
+                  </h3>
+                  <p className="text-secondary/70">
+                    Complete surveys and tasks to earn karma points alongside immediate rewards like water bottles
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Gift className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-space-grotesk text-lg font-semibold text-secondary mb-2">
+                    Redeem for Samples
+                  </h3>
+                  <p className="text-secondary/70">
+                    Use karma points to get branded free samples from nearby stores and brands
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm">
+                <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Target className="w-6 h-6 text-green-500" />
+                </div>
+                <div>
+                  <h3 className="font-space-grotesk text-lg font-semibold text-secondary mb-2">
+                    Earn More Points
+                  </h3>
+                  <p className="text-secondary/70">
+                    Complete brand surveys after receiving samples to earn additional karma points
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <div className="relative inline-block">
+                <div className="w-64 h-64 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <Heart className="w-16 h-16 mx-auto mb-4" />
+                    <h3 className="font-space-grotesk text-2xl font-bold mb-2">Karma Points</h3>
+                    <p className="text-sm opacity-90">The currency of good deeds</p>
+                  </div>
+                </div>
+                <div className="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-2xl">♻️</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -249,15 +336,15 @@ const Index = () => {
               <ul className="space-y-3 text-secondary/70">
                 <li className="flex items-start gap-2">
                   <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Earn rewards from everyday activities</span>
+                  <span>Discover nearby shops and exclusive offers</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Discover local businesses and deals</span>
+                  <span>Earn immediate rewards and karma points</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Simple, instant gratification</span>
+                  <span>Get branded free samples with karma points</span>
                 </li>
               </ul>
             </div>
@@ -272,15 +359,15 @@ const Index = () => {
               <ul className="space-y-3 text-secondary/70">
                 <li className="flex items-start gap-2">
                   <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Increased foot traffic and customers</span>
+                  <span>Increased foot traffic and visibility</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Cost-effective marketing</span>
+                  <span>Cost-effective customer acquisition</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Build customer loyalty</span>
+                  <span>Build customer loyalty through rewards</span>
                 </li>
               </ul>
             </div>
@@ -295,58 +382,21 @@ const Index = () => {
               <ul className="space-y-3 text-secondary/70">
                 <li className="flex items-start gap-2">
                   <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Direct consumer engagement</span>
+                  <span>Direct consumer engagement and feedback</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Real-world interaction data</span>
+                  <span>Product sampling and market research</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ChevronRight className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
-                  <span>Measurable campaign results</span>
+                  <span>Measurable campaign results and ROI</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Screenshots/Demo */}
-      {/* <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-space-grotesk text-3xl lg:text-4xl font-bold text-secondary mb-4">
-              See Async in Action
-            </h2>
-            <p className="text-lg text-secondary/70 max-w-2xl mx-auto">
-              Experience the seamless flow from scan to reward
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg p-8 text-center">
-              <div className="w-48 h-96 bg-white rounded-2xl mx-auto shadow-lg border-8 border-secondary/10 flex items-center justify-center mb-4">
-                <QrCode className="w-16 h-16 text-primary" />
-              </div>
-              <p className="font-space-grotesk font-medium text-secondary">Scan</p>
-            </div>
-
-            <div className="bg-gradient-to-br from-accent/5 to-accent/10 rounded-lg p-8 text-center">
-              <div className="w-48 h-96 bg-white rounded-2xl mx-auto shadow-lg border-8 border-secondary/10 flex items-center justify-center mb-4">
-                <Zap className="w-16 h-16 text-accent" />
-              </div>
-              <p className="font-space-grotesk font-medium text-secondary">Complete</p>
-            </div>
-
-            <div className="bg-gradient-to-br from-destructive/5 to-destructive/10 rounded-lg p-8 text-center">
-              <div className="w-48 h-96 bg-white rounded-2xl mx-auto shadow-lg border-8 border-secondary/10 flex items-center justify-center mb-4">
-                <Gift className="w-16 h-16 text-destructive" />
-              </div>
-              <p className="font-space-grotesk font-medium text-secondary">Reward</p>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-r from-primary to-secondary">
@@ -355,7 +405,7 @@ const Index = () => {
             Be the First to Try Async
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Join our exclusive waitlist and get early access to the future of reward-based interactions. Spots are limited!
+            Join our exclusive waitlist and get early access to discover nearby shops, earn karma points, and get free branded samples. Spots are limited!
           </p>
 
           <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
@@ -364,7 +414,7 @@ const Index = () => {
               placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200"
+              className="flex-1 h-14 bg-white/95 border-0 text-secondary placeholder:text-secondary/60 text-lg rounded-xl shadow-lg focus:bg-white transition-all duration-200 focus:ring-2 focus:ring-accent/50"
             />
             <Button
               type="submit"
@@ -376,7 +426,7 @@ const Index = () => {
           </form>
 
           <p className="text-white/60">
-            🎯 Early adopters get exclusive perks and bonus rewards
+            🎯 Early adopters get exclusive perks and bonus karma points
           </p>
         </div>
       </section>
@@ -388,12 +438,9 @@ const Index = () => {
             <div className="md:col-span-2">
               <h3 className="font-syne text-2xl font-bold text-white mb-4">Async</h3>
               <p className="text-white/70 mb-6 max-w-md">
-                Connecting people, local shops, and brands through innovative QR-based rewards.
+                Connecting people, local shops, and brands through innovative karma-based rewards and community building.
               </p>
               <div className="flex gap-4">
-                {/* <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
-                  <Twitter className="w-5 h-5 text-white" />
-                </a> */}
                 <a href="https://instagram.com/1.suyashk" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors">
                   <Instagram className="w-5 h-5 text-white" />
                 </a>
@@ -408,7 +455,6 @@ const Index = () => {
               <ul className="space-y-2">
                 <li><a href="#" className="text-white/70 hover:text-accent transition-colors">About</a></li>
                 <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Careers</a></li>
-                {/* <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Press</a></li> */}
               </ul>
             </div>
 
@@ -417,7 +463,7 @@ const Index = () => {
               <ul className="space-y-2">
                 <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Privacy Policy</a></li>
                 <li><a href="#" className="text-white/70 hover:text-accent transition-colors">Terms of Service</a></li>
-                <li>   <a href="mailto:1.suyashk@gmail.com" className="text-white/70 hover:text-accent transition-colors">Contact</a></li>
+                <li><a href="mailto:1.suyashk@gmail.com" className="text-white/70 hover:text-accent transition-colors">Contact</a></li>
               </ul>
             </div>
           </div>
